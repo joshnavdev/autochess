@@ -19,7 +19,7 @@ const composeEnhancers = (window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compos
 const middlewares = [thunk];
 const history = createBrowserHistory({});
 
-if (process.env.NODE_ENV === 'development') {
+if (import.meta.env.PROD === 'development') {
   middlewares.push(logger);
 }
 

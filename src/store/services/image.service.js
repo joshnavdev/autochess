@@ -1,13 +1,16 @@
 // region Action Types
 const importAll = (r) => {
+  console.log(r)
   let images = {};
-  r.keys().forEach((item) => {
-    images[item.replace('./', '')] = r(item);
+  Object.keys(r).forEach((item) => {
+    images[item.replace(/.*assets\//g, '')] = r[item].default;
   });
+
   return images;
 }
-const images = importAll(require.context('../../assets', false, /\.(png|jpe?g|svg)$/))
+const images = importAll(import.meta.globEager('../../assets/*.png'))
 
+console.log(images)
 // endregion
 
 // region initialState
