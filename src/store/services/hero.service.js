@@ -1,47 +1,56 @@
-import {
-  heroes
-} from '../data/heroes';
-import {
-  actionCreators as synergyStore
-} from "./synergy.service";
+import { heroes } from '../data/heroes';
+import { actionCreators as synergyStore } from './synergy.service';
 // region Action Types
 const SET_HERO = 'hero/SET';
+const CHANGE_FILTERS = 'hero/CHANGE_FILTERS';
 // endregion
 
 // region initialState
 const initialState = {
   show: false,
   focused: null,
-  heroes: {...heroes}
+  heroes: { ...heroes },
+  filters: {
+    search: '',
+  },
 };
 // endregion
 
 // region Reducer
 const reducer = (state = initialState, action = {}) => {
-
   switch (action.type) {
     case SET_HERO:
       return {
         ...state,
         heroes: {
           ...state.heroes,
-          ...action.res
+          ...action.res,
         },
-        focused: {...action.res}
-      }
+        focused: { ...action.res },
+      };
+    case CHANGE_FILTERS: {
+      return { ...state, filters: { ...state.filters, ...action.res } };
+    }
     default:
       return state;
   }
-}
+};
 // endregion
 
 // region Actions
 const setData = (prop) => {
   return {
     type: SET_HERO,
-    res: prop
+    res: prop,
   };
-}
+};
+
+const changeFilters = (filters) => {
+  return {
+    type: CHANGE_FILTERS,
+    res: filters,
+  };
+};
 // endregion
 
 // region Action Creators
@@ -49,8 +58,8 @@ const setData = (prop) => {
 const setHero = (hero) => {
   return (dispatch) => {
     dispatch(setData(hero));
-  }
-}
+  };
+};
 
 const updateHero = (name, position) => {
   return (dispatch, getState) => {
@@ -59,12 +68,12 @@ const updateHero = (name, position) => {
     const hero = {
       [name]: {
         ...state[name],
-        position: position ? position : currentPosition
-      }
-    }
+        position: position ? position : currentPosition,
+      },
+    };
     dispatch(setData(hero));
-  }
-}
+  };
+};
 
 const selectHero = (name) => {
   return (dispatch, getState) => {
@@ -72,22 +81,24 @@ const selectHero = (name) => {
     if (heroes[name].position) {
       const hero = {
         ...heroes[name],
-        position: null
-      }
-      dispatch(setData({
-        [name]: hero
-      }))
+        position: null,
+      };
+      dispatch(
+        setData({
+          [name]: hero,
+        })
+      );
       const synergies = [];
-      Object.keys(heroes[name]).map(prop => {
+      Object.keys(heroes[name]).map((prop) => {
         if (heroes[name][prop] === true) {
-          synergies.push(prop)
+          synergies.push(prop);
         }
         return prop;
-      })
-      dispatch(synergyStore.removeSynergies(synergies))
+      });
+      dispatch(synergyStore.removeSynergies(synergies));
     } else {
       const currentPositions = [];
-      Object.keys(heroes).map(hero => {
+      Object.keys(heroes).map((hero) => {
         if (heroes[hero].position) {
           currentPositions.push(heroes[hero].position);
         }
@@ -99,33 +110,34 @@ const selectHero = (name) => {
       }
 
       const filterPositions = (position) => {
-        return currentPositions.filter(x => x === parseInt(position));
-      }
+        return currentPositions.filter((x) => x === parseInt(position));
+      };
 
       for (var i = 1; i <= 32; i++) {
         if (!filterPositions(i).length) {
           const hero = {
             ...heroes[name],
-            position: i
-          }
-          dispatch(setData({
-            [name]: hero
-          }));
+            position: i,
+          };
+          dispatch(
+            setData({
+              [name]: hero,
+            })
+          );
           break;
         }
       }
       const synergies = [];
-      Object.keys(heroes[name]).map(prop => {
+      Object.keys(heroes[name]).map((prop) => {
         if (heroes[name][prop] === true) {
-          synergies.push(prop)
+          synergies.push(prop);
         }
         return prop;
-      })
-      dispatch(synergyStore.addSynergies(synergies))
+      });
+      dispatch(synergyStore.addSynergies(synergies));
     }
-
-  }
-}
+  };
+};
 
 // endregion
 
@@ -137,12 +149,10 @@ const actionTypes = {
 const actionCreators = {
   setHero,
   selectHero,
-  updateHero
+  updateHero,
+  changeFilters,
 };
 
-export {
-  actionTypes,
-  actionCreators
-};
+export { actionTypes, actionCreators };
 
 export default reducer;

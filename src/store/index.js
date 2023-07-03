@@ -1,21 +1,19 @@
-import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-import thunk from "redux-thunk";
-import { createBrowserHistory } from "history";
-import { createLogger } from "redux-logger";
-import heroReducer from "./services/hero.service";
-import imageReducer from "./services/image.service";
-import synergyReducer from "./services/synergy.service";
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import { createBrowserHistory } from 'history';
+import { createLogger } from 'redux-logger';
+import heroReducer from './services/hero.service';
+import imageReducer from './services/image.service';
+import synergyReducer from './services/synergy.service';
 
-const logger= createLogger({
+const logger = createLogger({
   collapsed: (getState, action) => {
-    return ((action && action.expandInLog)
-      ? false
-      : true);
+    return action && action.expandInLog ? false : true;
   },
   level: 'info',
 });
 
-const composeEnhancers = (window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = [thunk];
 const history = createBrowserHistory({});
 
@@ -28,13 +26,16 @@ const createRootReducer = (history) => {
     history,
     heroes: heroReducer,
     images: imageReducer,
-    synergies: synergyReducer
-   });
+    synergies: synergyReducer,
+  });
 };
 
 export const configureStore = () => {
   return {
-    store: createStore(createRootReducer(history), composeEnhancers(applyMiddleware(...middlewares))),
+    store: createStore(
+      createRootReducer(history),
+      composeEnhancers(applyMiddleware(...middlewares))
+    ),
     history,
   };
-}
+};

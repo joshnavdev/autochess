@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const TypeList = ({className, types, title}) => {
+const TypeList = ({ className, types, title }) => {
   return (
     <div className={className}>
-    <strong>{title}</strong>
+      <strong>{title}</strong>
       {Object.keys(types).map((key, index) => {
         return (
           <div key={`${key}-${index}-${className}`}>

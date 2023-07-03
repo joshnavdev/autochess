@@ -1,13 +1,12 @@
 $theme-color-1: #1e2a38;
-$theme-color-2: #4D5B6C;
+$theme-color-2: #4d5b6c;
 $theme-color-3: #081320;
-$theme-color-4: #4A6D63;
-$theme-color-5: #C9B89C;
+$theme-color-4: #4a6d63;
+$theme-color-5: #c9b89c;
 $theme-green-dark: #565c32;
 $theme-green-light: #7a8545;
 $theme-inset-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.9) inset;
-$theme-card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-0 3px 6px rgba(0, 0, 0, 0.23);
+$theme-card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 html {
   font-family: 'Open Sans', sans-serif;
@@ -55,20 +54,16 @@ footer {
   }
 }
 
-main {
-  background: lighten($theme-color-1, 4);
-}
-
 .chessboard {
   .square {
     display: flex;
   }
-  >* {
+  > * {
     background-color: $theme-green-light;
   }
-  >* {
+  > * {
     @each $offset in 2 4 6 8 9 11 13 15 {
-      &:nth-child(16n+#{$offset}) {
+      &:nth-child(16n + #{$offset}) {
         background-color: $theme-green-dark;
       }
     }
@@ -82,13 +77,13 @@ main {
   font-weight: 600;
   color: white;
   .synergy-item-count {
-    border-radius: 50%;
+    border-radius: 10%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    font-size: 1.9rem;
-    >div {
+    font-size: 1.75rem;
+    > div {
       text-shadow: 1px 3px #000;
     }
   }
@@ -117,7 +112,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   padding: 10px;
-  >* {
+  > * {
     display: flex;
     justify-content: center;
     align-items: center;

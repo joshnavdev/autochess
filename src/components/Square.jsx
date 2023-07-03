@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { DropTarget } from 'react-dnd';
 
 const squareTarget = {
@@ -8,36 +8,40 @@ const squareTarget = {
   },
   canDrop(props) {
     return props.children === undefined;
-  }
+  },
 };
 
 function collect(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver(),
-    canDrop: monitor.canDrop()
+    canDrop: monitor.canDrop(),
   };
 }
 
 function Square({ connectDropTarget, isOver, canDrop, children, position, onClick }) {
   const renderOverlay = (color) => {
     return (
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: 1,
-        opacity: 0.2,
-        backgroundColor: color,
-      }} />
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 1,
+          opacity: 0.2,
+          backgroundColor: color,
+        }}
+      />
     );
-  }
+  };
   return connectDropTarget(
-    <div className="square"
+    <div
+      className="square"
       onClick={() => onClick(position)}
       style={{
-      position: 'relative'
-    }}>
+        position: 'relative',
+      }}
+    >
       {children}
       {isOver && !canDrop && renderOverlay('red')}
       {!isOver && canDrop && renderOverlay('yellow')}

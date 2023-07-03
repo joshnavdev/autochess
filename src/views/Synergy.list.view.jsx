@@ -1,5 +1,5 @@
-import React from "react";
-import SynergyList from "../components/Synergy.all.list";
+import React from 'react';
+import SynergyList from '../components/Synergy.all.list';
 
 export const SynergyListView = () => {
   return (
@@ -7,5 +7,5 @@ export const SynergyListView = () => {
       <SynergyList />
     </main>
   );
-}
+};
 export default SynergyListView;

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import DragContainer from "./DragContainer";
-import { actionCreators as heroStore } from "../store/services/hero.service";
-import Square from "./Square";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import DragContainer from './DragContainer';
+import { actionCreators as heroStore } from '../store/services/hero.service';
+import Square from './Square';
 
 class Chessboard extends Component {
   getHeroImage(hero) {
@@ -12,7 +12,7 @@ class Chessboard extends Component {
   renderHero(position) {
     const hero = this.getHero(position);
     if (hero) {
-      return <DragContainer name={hero} image={this.getHeroImage(hero)} />
+      return <DragContainer name={hero} image={this.getHeroImage(hero)} />;
     }
   }
   updatePosition(hero, position) {
@@ -41,19 +41,24 @@ class Chessboard extends Component {
     const squares = [];
     for (var i = 1; i <= 32; i++) {
       squares.unshift(
-        <Square key={i} position={i} updatePosition={this.updatePosition.bind(this)} onClick={this.handleClick.bind(this)}>
+        <Square
+          key={i}
+          position={i}
+          updatePosition={this.updatePosition.bind(this)}
+          onClick={this.handleClick.bind(this)}
+        >
           {this.renderHero(i)}
         </Square>
-      )
-    };
+      );
+    }
     return this.splitToChunks(squares, 4);
   }
 
   getHero(position) {
     let exists = null;
-    Object.keys(this.props.heroes).map(hero => {
+    Object.keys(this.props.heroes).map((hero) => {
       if (this.props.heroes[hero].position === position) {
-        exists = hero
+        exists = hero;
       }
       return hero;
     });
@@ -61,29 +66,23 @@ class Chessboard extends Component {
   }
 
   render() {
-    return (
-      <div className="chessboard">
-        {
-          this.generateSquares()
-        }
-      </div>
-    )
+    return <div className="chessboard">{this.generateSquares()}</div>;
   }
-};
+}
 
 const getData = (state, store) => state[store];
 
 const mapStateToProps = (state) => {
   return {
     heroes: getData(state, 'heroes').heroes,
-    images: getData(state, 'images')
+    images: getData(state, 'images'),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return ({
-    updateHero: (hero, position) => dispatch(heroStore.updateHero(hero, position))
-  });
+  return {
+    updateHero: (hero, position) => dispatch(heroStore.updateHero(hero, position)),
+  };
 };
 const ChessboardConnected = connect(mapStateToProps, mapDispatchToProps)(Chessboard);
 export default ChessboardConnected;

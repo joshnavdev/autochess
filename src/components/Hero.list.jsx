@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Hero } from "./Hero";
-import { actionCreators as heroStore } from "../store/services/hero.service";
-import classnames from "classnames";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Hero } from './Hero';
+import { actionCreators as heroStore } from '../store/services/hero.service';
+import classnames from 'classnames';
+import { startsWith, pickBy } from 'lodash';
 
 export class HeroList extends Component {
   getHeroImage(hero) {
@@ -12,7 +13,6 @@ export class HeroList extends Component {
 
   selectHero(hero) {
     this.props.selectHero(hero);
-
   }
   isHeroSelected(hero) {
     return this.props.heroes[hero].position !== null;
@@ -20,9 +20,9 @@ export class HeroList extends Component {
 
   getSelectedHeroes() {
     const selected = [];
-    Object.keys(this.props.heroes).map(hero => {
+    Object.keys(this.props.heroes).map((hero) => {
       if (this.props.heroes[hero].position) {
-        selected.push(hero)
+        selected.push(hero);
       }
       return hero;
     });
@@ -36,46 +36,52 @@ export class HeroList extends Component {
   }
   render() {
     const { heroes } = this.props;
-    const containerClasses = classnames({
+    const containerClasses = classnames('', {
       'hero-list-container': true,
-      'show': this.props.show
+      show: false,
     });
     return (
       <div className={containerClasses}>
         <div className="hero-list">
-          {
-            Object.keys(heroes).map(hero => {
-              return (
-                <Hero key={`${hero}-list`}
-                  name={hero}
-                  hero={heroes[hero]}
-                  selected={this.isHeroSelected(hero)}
-                  image={this.getHeroImage(hero)}
-                  selectHero={this.selectHero.bind(this)}
-                />
-              )
-            })
-          }
+          {Object.keys(heroes).map((hero) => {
+            return (
+              <Hero
+                key={`${hero}-list`}
+                name={hero}
+                hero={heroes[hero]}
+                selected={this.isHeroSelected(hero)}
+                image={this.getHeroImage(hero)}
+                selectHero={this.selectHero.bind(this)}
+              />
+            );
+          })}
         </div>
       </div>
     );
   }
-};
+}
 
 const getData = (state, store) => state[store];
 
 const mapStateToProps = (state) => {
+  const heroStore = state.heroes;
+  const filterSearch = heroStore.filters.search;
+
+  const heroes = pickBy(heroStore.heroes, (hero, key) => {
+    return startsWith(key.toLowerCase(), filterSearch.toLowerCase());
+  });
+
   return {
-    heroes: getData(state, 'heroes').heroes,
+    heroes: heroes,
     synergies: getData(state, 'synergies'),
-    images: getData(state, 'images')
+    images: getData(state, 'images'),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return ({
-    selectHero: (hero) => dispatch(heroStore.selectHero(hero))
-  });
+  return {
+    selectHero: (hero) => dispatch(heroStore.selectHero(hero)),
+  };
 };
 const HeroListConnected = connect(mapStateToProps, mapDispatchToProps)(HeroList);
 export default HeroListConnected;

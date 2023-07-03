@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import TouchBackend from 'react-dnd-touch-backend';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { configureStore } from './store';
 import classnames from 'classnames';
-import "./styles/structure.scss";
+import './styles/structure.scss';
 
 import Header from './components/Header';
 import ChessboardView from './views/Chessboard.view';
@@ -16,15 +16,14 @@ import HeroList from './components/Hero.list';
 import NeutralsList from './components/Neutrals.list';
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.store = configureStore().store;
     this.history = configureStore().history;
     this.state = {
       left: false,
-      right: false
-    }
+      right: false,
+    };
   }
 
   toggleSidebar(side, value) {
@@ -34,26 +33,25 @@ class App extends Component {
   render() {
     const sidebarRight = classnames({
       'sidebar-right': true,
-      'show': this.state.right
-    })
+      show: this.state.right,
+    });
     return (
       <Provider store={this.store}>
         <Router>
-          <div className="container">
-            <Header
+          <div className="container mx-auto">
+            {/*<Header
               left={this.state.left}
               right={this.state.right}
-              toggleSidebar={this.toggleSidebar.bind(this)} />
-            <Sidebar show={this.state.left} />
+              toggleSidebar={this.toggleSidebar.bind(this)}
+            />
+            <Sidebar show={this.state.left} />*/}
             <main>
               <Route path="/" exact component={ChessboardView} />
               <Route path="/list/" component={SynergyListView} />
             </main>
             <aside className={sidebarRight}>
-              <Route path="/" exact component={HeroList}/>
               <Route path="/list/" component={NeutralsList} />
             </aside>
-            <Footer />
           </div>
         </Router>
       </Provider>
@@ -62,7 +60,7 @@ class App extends Component {
 }
 
 const touchOptions = {
-  enableMouseEvents: true
+  enableMouseEvents: true,
 };
 
 export default DragDropContext(TouchBackend(touchOptions))(App);

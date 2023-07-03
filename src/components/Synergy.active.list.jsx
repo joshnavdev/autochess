@@ -1,37 +1,41 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import {actionCreators as synergyStore} from "../store/services/synergy.service";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actionCreators as synergyStore } from '../store/services/synergy.service';
+// import classNames from 'classnames';
+import SynergyActiveItem from './Synergy.active.item';
 
 class SynergyActiveList extends Component {
   getActives = (actives) => {
     const activeSynergies = [];
-    Object.keys(actives).map(active => {
-      if (actives[active] && this.props.synergies[active].active) {
+    Object.keys(actives).forEach((active) => {
+      const synergy = this.props.synergies[active];
+      const numberActives = actives[active];
+
+      if (numberActives && synergy.active) {
         activeSynergies.push(
-          <div className="synergy-item" key={`${active}-perks`} onClick={() => this.props.setActiveSynergy(active, actives[active])}>
-            <div className="synergy-item-count" style={{ backgroundImage: `url(${this.props.images[active + '.png']})` }}>
-              <div>
-                {actives[active]}
-              </div>
-            </div>
-            {active}
-          </div>
+          <SynergyActiveItem
+            key={`${active}-perks`}
+            name={active}
+            synergy={synergy}
+            numberActives={numberActives}
+            image={this.props.images[active + '.png']}
+            onClick={() => this.props.setActiveSynergy(active, numberActives)}
+          />
         );
       }
-      return active;
     });
+
     return activeSynergies;
-  }
+  };
+
   render() {
     return (
-      <div className="synergy-container">
-        <div className="synergy-list">
-          {this.getActives(this.props.actives)}
-        </div>
+      <div className="synergy-container mt-5">
+        <div className="synergy-list">{this.getActives(this.props.actives)}</div>
       </div>
-    )
+    );
   }
-};
+}
 
 const getData = (state, store) => state[store];
 
@@ -40,14 +44,14 @@ const mapStateToProps = (state) => {
     heroes: getData(state, 'heroes').heroes,
     actives: getData(state, 'synergies').actives,
     synergies: getData(state, 'synergies').synergies,
-    images: getData(state, 'images')
+    images: getData(state, 'images'),
   };
 };
 //setActiveSynergy
 const mapDispatchToProps = (dispatch) => {
-  return ({
-    setActiveSynergy: (active, count) => dispatch(synergyStore.setActiveSynergy(active, count))
-  });
+  return {
+    setActiveSynergy: (active, count) => dispatch(synergyStore.setActiveSynergy(active, count)),
+  };
 };
 
 const SynergyActiveListConnected = connect(mapStateToProps, mapDispatchToProps)(SynergyActiveList);

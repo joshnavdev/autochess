@@ -1,3 +1,1 @@
-export const neutrals = {
-
-}
+export const neutrals = {};

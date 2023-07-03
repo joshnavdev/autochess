@@ -1,5 +1,5 @@
 .selected {
-  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(0) contrast(0.8);
 }
 
 .disabled {
@@ -23,7 +23,7 @@
     background-repeat: no-repeat;
   }
   .hero-body {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: white;
     padding: 3px;
     display: grid;
@@ -31,7 +31,7 @@
     grid-auto-rows: 30px;
     column-gap: 3px;
     text-transform: capitalize;
-    >strong {
+    > strong {
       grid-column: auto / span 6;
       display: flex;
       justify-content: space-between;
@@ -39,7 +39,7 @@
     .demonhunter {
       grid-column: auto / span 3;
     }
-    >span {
+    > span {
       grid-column: auto / span 2;
       border: 1px solid;
       display: flex;
@@ -48,7 +48,7 @@
     }
   }
   &:hover {
-    opacity: .3;
+    opacity: 0.3;
   }
 }
 
@@ -74,70 +74,87 @@
 
 .assasin {
   color: #bfc971;
+  border-color: #bfc971;
 }
 
 .demonhunter {
   color: #6c138f;
+  border-color: #6c138f;
 }
 
 .druid {
   color: #cc6606;
+  border-color: #cc6606;
 }
 
 .hunter {
   color: #99bf6b;
+  border-color: #99bf6b;
 }
 
 .knight {
   color: #ed8ab8;
+  border-color: #ed8ab8;
 }
 
 .mage {
   color: #79c3db;
+  border-color: #79c3db;
 }
 
 .mech {
   color: #c27706;
+  border-color: #c27706;
 }
 
 .shaman {
   color: #2b43a1;
+  border-color: #2b43a1;
 }
 
 .warlock {
   color: #574a8a;
+  border-color: #574a8a;
 }
 
 .warrior {
   color: #b89065;
+  border-color: #b89065;
 }
 
 .beast {
   color: #2b8016;
+  border-color: #2b8016;
 }
 
 .demon {
   color: #771cbd;
+  border-color: #771cbd;
 }
 
 .dwarf {
   color: #a37056;
+  border-color: #a37056;
 }
 
 .dragon {
   color: #cc040b;
+  border-color: #cc040b;
 }
 
 .elemental {
   color: #fcf80a;
+  border-color: #fcf80a;
 }
 
 .elf {
   color: #0d578c;
+  border-color: #0d578c;
 }
 
 .goblin {
   color: #a82814;
+  border-color: #a82814;
 }
 
 .human {
@@ -146,22 +163,27 @@
 
 .naga {
   color: #4d46d4;
+  border-color: #4d46d4;
 }
 
 .ogre {
   color: #00455c;
+  border-color: #00455c;
 }
 
 .orc {
   color: #8c1527;
+  border-color: #8c1527;
 }
 
 .troll {
   color: #757861;
+  border-color: #757861;
 }
 
 .undead {
   color: #575757;
+  border-color: #575757;
 }
 
 .satyr {
