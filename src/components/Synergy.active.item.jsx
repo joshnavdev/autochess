@@ -22,8 +22,10 @@ function SynergyActiveItem({ name, synergy, numberActives, image, onClick }) {
           const isCurrentPointActive = currentPoint <= numberActives;
 
           const style = classNames('w-full h-[10px] border rounded', {
-            [`border-dota-${name}`]: true,
-            [`bg-dota-${name}`]: isCurrentPointActive,
+            // [`border-dota-${name}`]: true,
+            // [`bg-dota-${name}`]: isCurrentPointActive,
+            [`border-gray-400`]: true,
+            [`bg-gray-300`]: isCurrentPointActive,
           });
 
           currentPoint++;

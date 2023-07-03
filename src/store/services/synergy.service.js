@@ -1,13 +1,20 @@
+import { forEach, keys } from 'lodash';
 import { synergies } from '../data/synergies';
 // region Action Types
 const SET_SYNERGY = 'synergy/SET';
 const SET_ACTIVE = 'synergy/active';
 // endregion
 
+const sortedSynergies = {};
+
+forEach(keys(synergies).sort(), (synergy) => {
+  sortedSynergies[synergy] = synergies[synergy];
+});
+
 // region initialState
 const initialState = {
   actives: {},
-  synergies,
+  synergies: sortedSynergies,
   active: null,
   count: 0,
   selectedSynergies: [],

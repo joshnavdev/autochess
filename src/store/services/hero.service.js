@@ -1,4 +1,4 @@
-import { filter } from 'lodash';
+import { filter, keys, map, reduce, sortBy } from 'lodash';
 import { heroes } from '../data/heroes';
 import { actionCreators as synergyStore } from './synergy.service';
 // region Action Types
@@ -8,11 +8,19 @@ const ADD_SYNERGY_FILTER = 'hero/ADD_SYNERGY_FILTER';
 const REMOVE_SYNERGY_FILTER = 'hero/REMOVE_SYNERGY_FILTER';
 // endregion
 
+const sortedHeroes = reduce(
+  sortBy(
+    map(heroes, (hero, key) => ({ key, hero })),
+    ['hero.cost']
+  ),
+  (acc, { key, hero }) => ({ ...acc, [key]: hero }),
+  {}
+);
 // region initialState
 const initialState = {
   show: false,
   focused: null,
-  heroes: { ...heroes },
+  heroes: { ...sortedHeroes },
   filters: {
     search: '',
     synergies: [],

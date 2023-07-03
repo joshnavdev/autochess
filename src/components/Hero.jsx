@@ -14,7 +14,7 @@ export const Hero = (props) => {
     Object.keys(hero).map((prop) => {
       if (hero[prop] === true) {
         const style = classnames(
-          `text-dota-${prop} border-dota-${prop} text-xs font-bold mr-1 px-1 py-1 border rounded`
+          `text-dota-${prop} border-dota-${prop} text-xs font-bold mr-1 px-1 py-1 border rounded text-gray-500 border-gray-500`
         );
         props.push(
           <span key={`${name}-${prop}`} className={style}>

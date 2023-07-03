@@ -35,13 +35,7 @@ export const heroes = {
     warrior: true,
     cost: 1,
   },
-  'Bat Rider': {
-    position: null,
-    troll: true,
-    knight: true,
-    cost: 1,
-  },
-  'Beast Master': {
+  Beastmaster: {
     position: null,
     orc: true,
     hunter: true,
@@ -75,7 +69,7 @@ export const heroes = {
     position: null,
     orc: true,
     shaman: true,
-    cost: 4,
+    cost: 5,
   },
   Doom: {
     position: null,
@@ -94,7 +88,7 @@ export const heroes = {
     position: null,
     undead: true,
     hunter: true,
-    cost: 1,
+    cost: 4,
   },
   Enchantress: {
     position: null,
@@ -124,7 +118,7 @@ export const heroes = {
   // TODO: Hero image
   Hoodwink: {
     position: null,
-    druid: true,
+    beast: true,
     hunter: true,
     cost: 1,
   },
@@ -146,12 +140,12 @@ export const heroes = {
     warrior: true,
     cost: 4,
   },
-  // "Lich": {
-  //   "position": null,
-  //   "undead": true,
-  //   "mage": true,
-  //   "cost": 5
-  // },
+  Lich: {
+    position: null,
+    undead: true,
+    mage: true,
+    cost: 4,
+  },
   Lina: {
     position: null,
     human: true,
@@ -176,6 +170,7 @@ export const heroes = {
     beast: true,
     warrior: true,
     cost: 3,
+    blocked: true,
   },
   Medusa: {
     position: null,
@@ -193,19 +188,20 @@ export const heroes = {
     position: null,
     undead: true,
     warlock: true,
-    cost: 4,
+    cost: 5,
   },
   'Ogre Magi': {
     position: null,
     ogre: true,
     mage: true,
-    cost: 1,
+    cost: 2,
   },
   'Omni Knight': {
     position: null,
     human: true,
     knight: true,
     cost: 3,
+    blocked: true,
   },
   'Phantom Assassin': {
     position: null,
@@ -224,7 +220,7 @@ export const heroes = {
     position: null,
     demon: true,
     assasin: true,
-    cost: 2,
+    cost: 5,
   },
   Razor: {
     position: null,
@@ -232,12 +228,12 @@ export const heroes = {
     mage: true,
     cost: 3,
   },
-  // "Sand King": {
-  //   "position": null,
-  //   "beast": true,
-  //   "assasin": true,
-  //   "cost": 3
-  // },
+  'Sand King': {
+    position: null,
+    aqir: true,
+    assasin: true,
+    cost: 3,
+  },
   'Shadow Fiend': {
     position: null,
     demon: true,
@@ -254,19 +250,19 @@ export const heroes = {
     position: null,
     naga: true,
     warrior: true,
+    cost: 3,
+  },
+  Slark: {
+    position: null,
+    naga: true,
+    assasin: true,
     cost: 2,
   },
-  // "Slark": {
-  //   "position": null,
-  //   "naga": true,
-  //   "assasin": true,
-  //   "cost": 2
-  // },
   Sniper: {
     position: null,
     dwarf: true,
     hunter: true,
-    cost: 3,
+    cost: 2,
   },
   Techies: {
     position: null,
@@ -278,7 +274,7 @@ export const heroes = {
     position: null,
     elf: true,
     assasin: true,
-    cost: 4,
+    cost: 5,
   },
   Terrorblade: {
     position: null,
@@ -320,13 +316,14 @@ export const heroes = {
     position: null,
     troll: true,
     warrior: true,
-    cost: 4,
+    cost: 5,
   },
   Tusk: {
     position: null,
     beast: true,
     warrior: true,
     cost: 1,
+    blocked: true,
   },
   'Vengeful Spirit': {
     position: null,
@@ -337,6 +334,7 @@ export const heroes = {
   Venomancer: {
     position: null,
     beast: true,
+    aqir: true,
     warlock: true,
     cost: 3,
   },
@@ -345,12 +343,13 @@ export const heroes = {
     dragon: true,
     assasin: true,
     cost: 3,
+    blocked: true,
   },
-  'Wind Ranger': {
+  Windranger: {
     position: null,
     elf: true,
     hunter: true,
-    cost: 3,
+    cost: 2,
   },
   'Witch Doctor': {
     position: null,
@@ -378,17 +377,11 @@ export const heroes = {
     hunter: true,
     cost: 2,
   },
-  // "Rikimaru": {
-  //   "position": null,
-  //   "satyr": true,
-  //   "assasin": true,
-  //   "cost": 3
-  // },
-  Zues: {
+  Rikimaru: {
     position: null,
-    god: true,
-    mage: true,
-    cost: 5,
+    satyr: true,
+    assasin: true,
+    cost: 3,
   },
   Mars: {
     position: null,
@@ -405,6 +398,201 @@ export const heroes = {
   Io: {
     position: null,
     elf: true,
+    cost: 5,
+  },
+  'Spirit Breaker': {
+    position: null,
+    tauren: true,
+    assasin: true,
+    cost: 1,
+  },
+  Batrider: {
+    position: null,
+    troll: true,
+    knight: true,
+    cost: 2,
+  },
+  Pudge: {
+    position: null,
+    undead: true,
+    warrior: true,
+    cost: 2,
+  },
+  'Naga Siren': {
+    position: null,
+    naga: true,
+    wizard: true,
+    cost: 2,
+  },
+  Oracle: {
+    position: null,
+    god: true,
+    priest: true,
+    cost: 2,
+  },
+  Brewmaster: {
+    position: null,
+    pandaren: true,
+    monk: true,
+    cost: 2,
+  },
+  Lion: {
+    position: null,
+    demon: true,
+    wizard: true,
+    cost: 2,
+  },
+  'Faceless Void': {
+    position: null,
+    faceless: true,
+    assasin: true,
+    cost: 2,
+  },
+  'Centaur Warrunner': {
+    position: null,
+    centaur: true,
+    warrior: true,
+    cost: 2,
+  },
+  Marci: {
+    position: null,
+    elf: true,
+    monk: true,
+    cost: 3,
+  },
+  Huskar: {
+    position: null,
+    troll: true,
+    warrior: true,
+    cost: 3,
+  },
+  'Legion Commander': {
+    position: null,
+    human: true,
+    knight: true,
+    cost: 3,
+  },
+  Muerta: {
+    position: null,
+    undead: true,
+    hunter: true,
+    cost: 3,
+  },
+  Undying: {
+    position: null,
+    undead: true,
+    priest: true,
+    cost: 3,
+  },
+  Rubick: {
+    position: null,
+    god: true,
+    wizard: true,
+    cost: 3,
+  },
+  Meepo: {
+    position: null,
+    kobold: true,
+    mech: true,
+    cost: 3,
+  },
+  'Wraith King': {
+    position: null,
+    undead: true,
+    warrior: true,
+    cost: 3,
+    blocked: true,
+  },
+  'Monkey King': {
+    position: null,
+    beast: true,
+    monk: true,
+    cost: 4,
+  },
+  Chen: {
+    position: null,
+    orc: true,
+    priest: true,
+    cost: 4,
+  },
+  Snapfire: {
+    position: null,
+    goblin: true,
+    knight: true,
+    cost: 4,
+  },
+  Broodmother: {
+    position: null,
+    aqir: true,
+    hunter: true,
+    cost: 4,
+  },
+  Earthshaker: {
+    position: null,
+    tauren: true,
+    shaman: true,
+    cost: 4,
+  },
+  Magnus: {
+    position: null,
+    centaur: true,
+    assasin: true,
+    cost: 4,
+  },
+  Invoker: {
+    position: null,
+    elf: true,
+    mage: true,
+    cost: 5,
+  },
+  'Primal Beast': {
+    position: null,
+    beast: true,
+    warrior: true,
+    cost: 5,
+  },
+  Spectre: {
+    position: null,
+    undead: true,
+    demonhunter: true,
+    cost: 5,
+  },
+  Warlock: {
+    position: null,
+    orc: true,
+    warlock: true,
+    cost: 5,
+  },
+  Jakiro: {
+    position: null,
+    dragon: true,
+    mage: true,
+    cost: 5,
+  },
+  Zeus: {
+    position: null,
+    god: true,
+    mage: true,
+    cost: 5,
+  },
+  'Elder Titan': {
+    position: null,
+    god: true,
+    tauren: true,
+    druid: true,
+    cost: 5,
+  },
+  Leshrac: {
+    position: null,
+    god: true,
+    centaur: true,
+    druid: true,
+    cost: 5,
+  },
+  'Arc Warden': {
+    position: null,
+    kobold: true,
+    shaman: true,
     cost: 5,
   },
 };
