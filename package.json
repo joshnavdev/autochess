@@ -1,14 +1,14 @@
 {
-  "name": "dota-autochess-helper",
+  "name": "autoches",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://autochess.corgial.com",
+  "homepage": "https://autochess.joshnavdev.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "classnames": "^2.2.6",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^5.0.0",
     "history": "^4.7.2",
     "i": "^0.3.6",
     "lodash": "^4.17.21",
@@ -32,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "prettier": "prettier --list-different 'src/**/*.{js,ts,tsx,jsx,scss}' && echo '✅ PASSED Prettier' || (echo '\nPlease fix code formatting by running:\nnpm run prettier:fix\n'; exit 1)",
     "prettier:fix": "prettier --write 'src/**/*.{js,ts,tsx,jsx,scss}'"
   },
