@@ -28,7 +28,7 @@ export const Hero = (props) => {
   };
 
   return (
-    <a href="#" className={styles} onClick={(e) => selectHero(name)}>
+    <div className={styles} onClick={(e) => selectHero(name)}>
       <div
         className="bg-no-repeat bg-cover w-28 h-20 bg-center rounded-s-xl"
         style={{ backgroundImage: `url(${image})` }}
@@ -40,7 +40,7 @@ export const Hero = (props) => {
         </div>
         <div>{getHeroProps()}</div>
       </div>
-    </a>
+    </div>
   );
 
   // return (

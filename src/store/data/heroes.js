@@ -93,7 +93,7 @@ export const heroes = {
   Enchantress: {
     position: null,
     beast: true,
-    centaur: true, // TODO: synery image
+    centaur: true,
     druid: true,
     cost: 1,
   },
@@ -115,7 +115,6 @@ export const heroes = {
     mech: true,
     cost: 5,
   },
-  // TODO: Hero image
   Hoodwink: {
     position: null,
     beast: true,
@@ -164,14 +163,14 @@ export const heroes = {
     knight: true,
     cost: 1,
   },
-  Lycan: {
-    position: null,
-    human: true,
-    beast: true,
-    warrior: true,
-    cost: 3,
-    blocked: true,
-  },
+  // Lycan: {
+  //   position: null,
+  //   human: true,
+  //   beast: true,
+  //   warrior: true,
+  //   cost: 3,
+  //   blocked: true,
+  // },
   Medusa: {
     position: null,
     naga: true,
@@ -196,13 +195,13 @@ export const heroes = {
     mage: true,
     cost: 2,
   },
-  'Omni Knight': {
-    position: null,
-    human: true,
-    knight: true,
-    cost: 3,
-    blocked: true,
-  },
+  // 'Omni Knight': {
+  //   position: null,
+  //   human: true,
+  //   knight: true,
+  //   cost: 3,
+  //   blocked: true,
+  // },
   'Phantom Assassin': {
     position: null,
     elf: true,
@@ -318,13 +317,13 @@ export const heroes = {
     warrior: true,
     cost: 5,
   },
-  Tusk: {
-    position: null,
-    beast: true,
-    warrior: true,
-    cost: 1,
-    blocked: true,
-  },
+  // Tusk: {
+  //   position: null,
+  //   beast: true,
+  //   warrior: true,
+  //   cost: 1,
+  //   blocked: true,
+  // },
   'Vengeful Spirit': {
     position: null,
     undead: true,
@@ -338,13 +337,13 @@ export const heroes = {
     warlock: true,
     cost: 3,
   },
-  Viper: {
-    position: null,
-    dragon: true,
-    assasin: true,
-    cost: 3,
-    blocked: true,
-  },
+  // Viper: {
+  //   position: null,
+  //   dragon: true,
+  //   assasin: true,
+  //   cost: 3,
+  //   blocked: true,
+  // },
   Windranger: {
     position: null,
     elf: true,
@@ -357,7 +356,6 @@ export const heroes = {
     warlock: true,
     cost: 1,
   },
-  // TODO: hero image
   'Winter Wyvern': {
     position: null,
     undead: true,
@@ -365,12 +363,12 @@ export const heroes = {
     mage: true,
     cost: 1,
   },
-  'Death Prophet': {
-    position: null,
-    undead: true,
-    warlock: true,
-    cost: 5,
-  },
+  // 'Death Prophet': {
+  //   position: null,
+  //   undead: true,
+  //   warlock: true,
+  //   cost: 5,
+  // },
   Mirana: {
     position: null,
     elf: true,
@@ -496,13 +494,13 @@ export const heroes = {
     mech: true,
     cost: 3,
   },
-  'Wraith King': {
-    position: null,
-    undead: true,
-    warrior: true,
-    cost: 3,
-    blocked: true,
-  },
+  // 'Wraith King': {
+  //   position: null,
+  //   undead: true,
+  //   warrior: true,
+  //   cost: 3,
+  //   blocked: true,
+  // },
   'Monkey King': {
     position: null,
     beast: true,
