@@ -34,7 +34,6 @@ class CurrentSynergyList extends Component {
 
   getSynergies(actives) {
     let activeSynergies = [];
-    console.log('actives', actives);
     Object.entries(actives).map((value) => {
       const synergy = value[0];
       const count = value[1];

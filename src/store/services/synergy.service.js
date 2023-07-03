@@ -10,6 +10,7 @@ const initialState = {
   synergies,
   active: null,
   count: 0,
+  selectedSynergies: [],
 };
 // endregion
 
@@ -48,7 +49,6 @@ const setActive = (prop) => {
 const demonSynergy = (actives) => {
   if (actives['demon'] >= 2) {
     const active = actives['demonhunter'] && actives['demonhunter'] >= 2 ? true : false;
-    console.log('demon', active);
     return active;
   }
   return true;
@@ -56,7 +56,6 @@ const demonSynergy = (actives) => {
 
 const synergyThreshold = (count, synergy) => {
   let active = undefined;
-  console.log(synergy);
   Object.keys(synergy).map((prop) => {
     const threshold = parseInt(prop);
     if (threshold && count >= threshold) {
@@ -74,7 +73,6 @@ const godSynergy = (heroes, synergies, actives) => {
   }
   const species = [];
   Object.keys(synergies).map((synergy) => {
-    console.log(synergy);
     if (!synergies[synergy].race) {
       return synergy;
     }
@@ -89,7 +87,6 @@ const godSynergy = (heroes, synergies, actives) => {
     }
     return synergy;
   });
-  console.log('active species', species);
   return species.length === 0;
 };
 // region Action Creators

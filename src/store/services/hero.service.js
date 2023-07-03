@@ -1,8 +1,11 @@
+import { filter } from 'lodash';
 import { heroes } from '../data/heroes';
 import { actionCreators as synergyStore } from './synergy.service';
 // region Action Types
 const SET_HERO = 'hero/SET';
 const CHANGE_FILTERS = 'hero/CHANGE_FILTERS';
+const ADD_SYNERGY_FILTER = 'hero/ADD_SYNERGY_FILTER';
+const REMOVE_SYNERGY_FILTER = 'hero/REMOVE_SYNERGY_FILTER';
 // endregion
 
 // region initialState
@@ -12,6 +15,7 @@ const initialState = {
   heroes: { ...heroes },
   filters: {
     search: '',
+    synergies: [],
   },
 };
 // endregion
@@ -30,6 +34,21 @@ const reducer = (state = initialState, action = {}) => {
       };
     case CHANGE_FILTERS: {
       return { ...state, filters: { ...state.filters, ...action.res } };
+    }
+    case ADD_SYNERGY_FILTER: {
+      return {
+        ...state,
+        filters: { ...state.filters, synergies: [...state.filters.synergies, action.res] },
+      };
+    }
+    case REMOVE_SYNERGY_FILTER: {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          synergies: filter(state.filters.synergies, (synergy) => synergy !== action.res),
+        },
+      };
     }
     default:
       return state;
@@ -51,6 +70,19 @@ const changeFilters = (filters) => {
     res: filters,
   };
 };
+
+const addSynergyFilter = (synergy) => {
+  return {
+    type: ADD_SYNERGY_FILTER,
+    res: synergy,
+  };
+};
+
+const removeSynergyFilter = (synergy) => ({
+  type: REMOVE_SYNERGY_FILTER,
+  res: synergy,
+});
+
 // endregion
 
 // region Action Creators
@@ -151,6 +183,8 @@ const actionCreators = {
   selectHero,
   updateHero,
   changeFilters,
+  addSynergyFilter,
+  removeSynergyFilter,
 };
 
 export { actionTypes, actionCreators };

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Hero } from './Hero';
 import { actionCreators as heroStore } from '../store/services/hero.service';
 import classnames from 'classnames';
-import { startsWith, pickBy } from 'lodash';
+import { startsWith, pickBy, includes, some, isEmpty } from 'lodash';
 
 export class HeroList extends Component {
   getHeroImage(hero) {
@@ -66,8 +66,19 @@ const getData = (state, store) => state[store];
 const mapStateToProps = (state) => {
   const heroStore = state.heroes;
   const filterSearch = heroStore.filters.search;
+  const filterSynergies = heroStore.filters.synergies;
 
-  const heroes = pickBy(heroStore.heroes, (hero, key) => {
+  const heroesBySynergy = pickBy(heroStore.heroes, (hero, key) => {
+    if (isEmpty(filterSynergies)) {
+      return true;
+    }
+
+    return some(filterSynergies, (synergy) => {
+      return hero[synergy];
+    });
+  });
+
+  const heroes = pickBy(heroesBySynergy, (hero, key) => {
     return startsWith(key.toLowerCase(), filterSearch.toLowerCase());
   });
 

@@ -4,7 +4,7 @@ export const heroes = {
     undead: true,
     knight: true,
     // "active": "APHOTIC SHIELD",
-    cost: 3,
+    cost: 1,
     // "description": "Summons dark energies around an ally unit, creating a shield that absorbs a set amount of damage before expiring. When the shield is destroyed it will burst and deal damage equal to the amount it could absorb to an area around it. Removes certain types of negative buffs and stuns on cast.",
     // "max damage absorbed": [100, 150, 200],
     // "duration": 10,
@@ -69,7 +69,7 @@ export const heroes = {
     position: null,
     human: true,
     mage: true,
-    cost: 2,
+    cost: 1,
   },
   Disruptor: {
     position: null,
@@ -99,6 +99,7 @@ export const heroes = {
   Enchantress: {
     position: null,
     beast: true,
+    centaur: true, // TODO: synery image
     druid: true,
     cost: 1,
   },
@@ -119,6 +120,13 @@ export const heroes = {
     dwarf: true,
     mech: true,
     cost: 5,
+  },
+  // TODO: Hero image
+  Hoodwink: {
+    position: null,
+    druid: true,
+    hunter: true,
+    cost: 1,
   },
   Juggernaut: {
     position: null,
@@ -160,7 +168,7 @@ export const heroes = {
     position: null,
     elf: true,
     knight: true,
-    cost: 2,
+    cost: 1,
   },
   Lycan: {
     position: null,
@@ -320,6 +328,12 @@ export const heroes = {
     warrior: true,
     cost: 1,
   },
+  'Vengeful Spirit': {
+    position: null,
+    undead: true,
+    demonhunter: true,
+    cost: 1,
+  },
   Venomancer: {
     position: null,
     beast: true,
@@ -342,7 +356,15 @@ export const heroes = {
     position: null,
     troll: true,
     warlock: true,
-    cost: 2,
+    cost: 1,
+  },
+  // TODO: hero image
+  'Winter Wyvern': {
+    position: null,
+    undead: true,
+    dragon: true,
+    mage: true,
+    cost: 1,
   },
   'Death Prophet': {
     position: null,
@@ -378,7 +400,7 @@ export const heroes = {
     position: null,
     troll: true,
     priest: true,
-    cost: 3,
+    cost: 1,
   },
   Io: {
     position: null,

@@ -9,7 +9,6 @@ class AllSynergyList extends Component {
       if (this.props.heroes[hero][synergy]) heroes.push(hero);
       return hero;
     });
-    console.log(synergy, heroes);
     return heroes;
   }
   render() {

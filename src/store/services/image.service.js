@@ -1,6 +1,5 @@
 // region Action Types
 const importAll = (r) => {
-  console.log(r);
   let images = {};
   Object.keys(r).forEach((item) => {
     images[item.replace(/.*assets\//g, '')] = r[item].default;
@@ -10,7 +9,6 @@ const importAll = (r) => {
 };
 const images = importAll(import.meta.globEager('../../assets/*.png'));
 
-console.log(images);
 // endregion
 
 // region initialState

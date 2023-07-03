@@ -31,8 +31,6 @@ function SynergyActiveItem({ name, synergy, numberActives, image, onClick }) {
         }
       }
 
-      console.log(indicatorsRow);
-
       indicators.push(<div className="flex gap-1">{indicatorsRow}</div>);
     }
 
